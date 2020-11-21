@@ -9,17 +9,13 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * ThreadUtil 类是
+ * ThreadUtil 类是 线程池相关工具类
  *
  * @author dongyinggang
  * @date 2020-11-16 11:10
  **/
 public class ThreadUtil {
-
-    static {
-
-    }
-
+    
 
     /**
      * 创建批量下载线程池
