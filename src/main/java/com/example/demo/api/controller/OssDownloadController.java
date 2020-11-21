@@ -65,7 +65,7 @@ public class OssDownloadController {
         list.add("workorderpic/20200819/customerService/attachment/2020-08-19/1597820198480.txt");
         String zipFileName = "test";
 //        AliOssUtil.batchDownLoadOssFile(list, zipFileName, response);
-        AliOssUtil.batchDownLoadOssFileByThreadPool(list,zipFileName,response);
+        AliOssUtil.batchDownLoadOssFileByThreadPool(list, zipFileName, response);
 
     }
 }
