@@ -72,7 +72,7 @@ public class AliOssUtil {
                 URL signedUrl = ossClient.generatePresignedUrl(request);
                 // 使用签名URL发送请求。
                 OSSObject ossObject = ossClient.getObject(signedUrl, new HashMap<>());
-                log.info("{} 下载完成",fileName);
+                log.info("{} 下载完成", fileName);
                 if (ossObject != null) {
                     InputStream inputStream = ossObject.getObjectContent();
                     byte[] buffs = new byte[1024 * 10];
@@ -86,13 +86,13 @@ public class AliOssUtil {
                     while ((read = bis.read(buffs, 0, 1024 * 10)) != -1) {
                         zos.write(buffs, 0, read);
                     }
-                    log.info( "{}压缩完成",fileName);
+                    log.info("{}压缩完成", fileName);
                     ossObject.close();
                 }
             }
             zos.close();
             Long end = System.currentTimeMillis();
-            log.info("批量下载并压缩的耗时：{} ms",(end - start));
+            log.info("批量下载并压缩的耗时：{} ms", (end - start));
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -165,7 +165,7 @@ public class AliOssUtil {
 
     private static OSSObject getOssObject(OSS ossClient, String fileName) {
         try {
-            log.info( "开始下载 {}",fileName);
+            log.info("开始下载 {}", fileName);
             Date expiration = new Date(System.currentTimeMillis() + 3600 * 1000);
             GeneratePresignedUrlRequest request = new GeneratePresignedUrlRequest(BACKET_NAME, fileName, HttpMethod.GET);
             // 设置过期时间。
@@ -179,7 +179,7 @@ public class AliOssUtil {
             return ossObject;
 
         } catch (Exception e) {
-            log.error("下载异常",e);
+            log.error("下载异常", e);
         }
         return null;
     }
@@ -206,7 +206,7 @@ public class AliOssUtil {
                 bis.close();
                 ossObject.close();
             } catch (Exception e) {
-                log.error("异常信息",e);
+                log.error("异常信息", e);
             }
 
         });
