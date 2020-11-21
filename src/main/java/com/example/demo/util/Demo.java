@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Demo 类是
+ * Demo 类是 CompletableFuture的demo测试
  *
  * @author dongyinggang
  * @date 2020-11-18 13:33
