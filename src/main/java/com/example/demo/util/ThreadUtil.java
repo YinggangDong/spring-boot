@@ -1,6 +1,5 @@
 package com.example.demo.util;
 
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
@@ -15,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @date 2020-11-16 11:10
  **/
 public class ThreadUtil {
-    
+
 
     /**
      * 创建批量下载线程池
