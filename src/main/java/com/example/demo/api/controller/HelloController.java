@@ -30,6 +30,7 @@ public class HelloController implements HelloApi {
     @GetMapping("hello")
     @Override
     public String hello() {
+
         return "调用成功";
     }
 
