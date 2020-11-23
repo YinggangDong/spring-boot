@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author dongyinggang
  * @date 2020/11/21 18:56
  */
+//@MapperScan(value = "com.example.demo.mapper")
 @SpringBootApplication
 public class DemoApplication {
 

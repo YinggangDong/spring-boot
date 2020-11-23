@@ -7,8 +7,8 @@ spring:
     password:
 
 mybatis:
-  mapper-locations: classpath:mapping/*Mapper.xml
-  type-aliases-package: com.example.demo.dao
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.example.demo.domain
 
   logging:
     level:
