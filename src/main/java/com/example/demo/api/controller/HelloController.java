@@ -1,6 +1,10 @@
 package com.example.demo.api.controller;
 
 import com.example.demo.api.HelloApi;
+import com.example.demo.domain.User;
+import com.example.demo.service.HelloService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,9 +20,13 @@ import java.util.concurrent.TimeUnit;
  * @author dongyinggang
  * @date 2020-11-11 18:47
  **/
+@Slf4j
 @RestController
 @RequestMapping("test")
 public class HelloController implements HelloApi {
+
+    @Autowired
+    private HelloService helloService;
 
     /**
      * hello 方法是 测试
@@ -29,9 +37,11 @@ public class HelloController implements HelloApi {
      */
     @GetMapping("hello")
     @Override
-    public String hello() {
-
-        return "调用成功";
+    public String hello(Integer id) {
+        log.info("测试方法 hello方法,入参为{}",id);
+        String realName =  helloService.hello(id);
+        log.info("测试方法 hello方法,出参为{}",realName);
+        return "hello" + realName;
     }
 
 //    public static void main(String[] args) {

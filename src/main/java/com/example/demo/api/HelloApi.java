@@ -15,6 +15,6 @@ public interface HelloApi {
      * @author dongyinggang
      * @date 2020/11/11 18:49
      */
-    String hello();
+    String hello(Integer id);
 
 }
