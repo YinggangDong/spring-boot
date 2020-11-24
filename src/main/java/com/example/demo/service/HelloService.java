@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 /**
- * HelloService 接口是
+ * HelloService 接口是 测试service
  *
  * @author dongyinggang
  * @date 2020-11-23 14:59

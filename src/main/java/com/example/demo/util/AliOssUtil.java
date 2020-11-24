@@ -23,7 +23,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 /**
- * AliOssUtil 类是
+ * AliOssUtil 类是 阿里云OSS服务器工具类
  *
  * @author dongyinggang
  * @date 2020-11-11 15:52
