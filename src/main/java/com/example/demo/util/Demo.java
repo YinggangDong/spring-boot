@@ -22,6 +22,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Demo {
 
     public static void test() {
+        long start = System.currentTimeMillis();
+        log.info("任务执行开始");
         AtomicInteger counter = new AtomicInteger(1);
 //        任务列表
         List<Integer> jobList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14);
@@ -41,7 +43,7 @@ public class Demo {
 
                     log.info("模拟任务执行，执行任务：{}", jobId);
 //                    睡几秒
-                    return jobId + "任务执行结果";
+                    return "任务"+jobId + "任务执行成功";
                 }, executorService);
 //            保存本次任务执行结果
                 completableFutures.add(integerCompletableFuture);
@@ -71,7 +73,7 @@ public class Demo {
         }
         voidCompletableFuture.join();
         executorService.shutdown();
-        log.info("任务执行完毕");
+        log.info("任务执行完毕,耗时：{}ms",System.currentTimeMillis() - start);
 
     }
 }
