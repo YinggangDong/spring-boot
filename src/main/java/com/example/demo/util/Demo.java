@@ -21,9 +21,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Slf4j
 public class Demo {
 
-    public static void main(String[] args) {
-        test();
-    }
     public static void test() {
         AtomicInteger counter = new AtomicInteger(1);
 //        任务列表
