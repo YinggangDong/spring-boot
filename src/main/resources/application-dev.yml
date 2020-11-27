@@ -10,9 +10,9 @@ mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.example.demo.domain
 
-  logging:
-    level:
-      com:
-        example:
-          demo:
-            mapper: debug
+logging:
+  level:
+    com:
+      example:
+        demo:
+          mapper: debug
