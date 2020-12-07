@@ -17,4 +17,14 @@ public interface HelloService {
      * @date 2020/11/23 15:58
      */
     String hello(Integer id);
+
+    /**
+     * hello 方法是 测试
+     *
+     * @param id 用户id
+     * @return 用户名称
+     * @author dongyinggang
+     * @date 2020/11/23 15:58
+     */
+    String helloList(Integer id);
 }

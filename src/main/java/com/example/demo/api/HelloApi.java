@@ -1,5 +1,7 @@
 package com.example.demo.api;
 
+import java.util.List;
+
 /**
  * HelloApi 接口是 SpringBoot项目测试接口
  *
@@ -16,5 +18,7 @@ public interface HelloApi {
      * @date 2020/11/11 18:49
      */
     String hello(Integer id);
+
+    String helloList(Integer id);
 
 }

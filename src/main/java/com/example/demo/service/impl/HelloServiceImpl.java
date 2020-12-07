@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 /**
  * HelloServiceImpl 类是 demo的Service实现
  *
@@ -30,7 +33,15 @@ public class HelloServiceImpl implements HelloService {
      */
     @Override
     public String hello(Integer id) {
+        //user可能为null
         User user = helloMapper.selectById(id);
-        return user.getRealName();
+        return Optional.ofNullable(user).map(User::getRealName).orElse("未知用户");
+    }
+
+    @Override
+    public String helloList(Integer id) {
+        //userList不会是null,会是一个size为0的空list
+        List<User> userList = helloMapper.selectListById(id);
+        return userList.size()+"";
     }
 }

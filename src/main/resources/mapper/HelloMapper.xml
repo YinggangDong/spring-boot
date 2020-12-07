@@ -6,6 +6,10 @@
         select * from user
         where id = #{id,jdbcType=INTEGER}
     </select>
+    <select id="selectListById" resultType="com.example.demo.domain.User">
+        select * from user
+        where id = 1231313;
+    </select>
 
 
 </mapper>

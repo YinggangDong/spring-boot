@@ -44,6 +44,22 @@ public class HelloController implements HelloApi {
         return "hello" + realName;
     }
 
+    /**
+     * hello 方法是 测试
+     *
+     * @return 测试结果
+     * @author dongyinggang
+     * @date 2020/11/11 18:49
+     */
+    @GetMapping("helloList")
+    @Override
+    public String helloList(Integer id) {
+        log.info("测试方法 helloList方法,入参为{}",id);
+        String size =  helloService.helloList(id);
+        log.info("测试方法 hello方法,出参为{}",size);
+        return "hello" + size;
+    }
+
 //    public static void main(String[] args) {
 //        List<CompletableFuture> list = new ArrayList<>();
 //        for (int i = 0; i < 10; i++) {
