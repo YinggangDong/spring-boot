@@ -6,7 +6,10 @@ import com.example.demo.service.HelloService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -38,10 +41,10 @@ public class HelloController implements HelloApi {
     @GetMapping("hello")
     @Override
     public String hello(Integer id) {
-        log.info("测试方法 hello方法,入参为{}",id);
+        log.info("测试方法 hello 方法,入参为{}",id);
         String realName =  helloService.hello(id);
-        log.info("测试方法 hello方法,出参为{}",realName);
-        return "hello" + realName;
+        log.info("测试方法 hello 方法,出参为{}",realName);
+        return "hello," + realName;
     }
 
     /**
@@ -57,7 +60,25 @@ public class HelloController implements HelloApi {
         log.info("测试方法 helloList方法,入参为{}",id);
         String size =  helloService.helloList(id);
         log.info("测试方法 hello方法,出参为{}",size);
-        return "hello" + size;
+        return "hello," + size;
+    }
+
+    /**
+     * helloPost 方法是 测试POST方法的参数接收
+     *
+     * @param user 含id的请求入参
+     * @return 测试结果
+     * @author dongyinggang
+     * @date 2021/1/4 8:19
+     */
+    @PostMapping("hello_post")
+    @Override
+    public String helloPost(@RequestBody User user) {
+        log.info("测试方法 helloPost 方法,入参为{}",user);
+        user.getRealName().intern();
+        String realName =  helloService.hello(user.getId());
+        log.info("测试方法 helloPost 方法,出参为{}",realName);
+        return "helloPost," + realName;
     }
 
 //    public static void main(String[] args) {

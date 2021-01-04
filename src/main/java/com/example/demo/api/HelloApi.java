@@ -1,5 +1,7 @@
 package com.example.demo.api;
 
+import com.example.demo.domain.User;
+
 import java.util.List;
 
 /**
@@ -20,5 +22,15 @@ public interface HelloApi {
     String hello(Integer id);
 
     String helloList(Integer id);
+
+    /**
+     * helloPost 方法是 测试POST方法的参数接收
+     *
+     * @param user 含id的请求入参
+     * @return 测试结果
+     * @author dongyinggang
+     * @date 2021/1/4 8:19
+     */
+    String helloPost(User user);
 
 }
