@@ -7,7 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -43,5 +45,17 @@ public class HelloServiceImpl implements HelloService {
         //userList不会是null,会是一个size为0的空list
         List<User> userList = helloMapper.selectListById(id);
         return userList.size()+"";
+    }
+
+    @Override
+    public String testProcess(){
+        Map<String,Object> map = new HashMap<>();
+        map.put("userName", "开发人员");
+        map.put("passWord","123");
+        map.put("realName","王五");
+        map.put("id",null);
+        helloMapper.testProcess(map);
+        System.out.println(map.get("id"));
+        return "";
     }
 }

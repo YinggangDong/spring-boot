@@ -33,4 +33,6 @@ public interface HelloApi {
      */
     String helloPost(User user);
 
+    String testProcess();
+
 }

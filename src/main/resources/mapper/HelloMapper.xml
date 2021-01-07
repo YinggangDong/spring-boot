@@ -11,5 +11,11 @@
         where id = 1231313;
     </select>
 
+    <select id="testProcess" parameterType="hashmap" statementType="CALLABLE" resultType="string">
+        <![CDATA[
+ {call testProcess(#{id,mode=OUT,jdbcType=INTEGER},#{userName,mode=IN},#{passWord,mode=IN},#{realName,mode=IN})}
+        ]]>
+    </select>
+
 
 </mapper>

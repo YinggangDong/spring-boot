@@ -81,6 +81,13 @@ public class HelloController implements HelloApi {
         return "helloPost," + realName;
     }
 
+    @GetMapping("test_process")
+    @Override
+    public String testProcess() {
+
+        return helloService.testProcess();
+    }
+
 //    public static void main(String[] args) {
 //        List<CompletableFuture> list = new ArrayList<>();
 //        for (int i = 0; i < 10; i++) {

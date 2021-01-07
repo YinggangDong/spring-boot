@@ -27,4 +27,6 @@ public interface HelloService {
      * @date 2020/11/23 15:58
      */
     String helloList(Integer id);
+
+    String testProcess();
 }
