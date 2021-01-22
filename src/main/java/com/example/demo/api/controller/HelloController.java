@@ -48,7 +48,8 @@ public class HelloController implements HelloApi {
     }
 
     /**
-     * hello 方法是 测试
+     * helloList 方法是 测试 mybatis 查询不到符合条件的记录时是返回null还是空的list的问题
+     * 结论：返回size=0的list
      *
      * @return 测试结果
      * @author dongyinggang
@@ -75,16 +76,21 @@ public class HelloController implements HelloApi {
     @Override
     public String helloPost(@RequestBody User user) {
         log.info("测试方法 helloPost 方法,入参为{}",user);
-        user.getRealName().intern();
         String realName =  helloService.hello(user.getId());
         log.info("测试方法 helloPost 方法,出参为{}",realName);
         return "helloPost," + realName;
     }
 
+    /**
+     * testProcess 方法是 测试存储过程调用
+     *
+     * @return 调用结果
+     * @author dongyinggang
+     * @date 2021/1/22 19:25
+     */
     @GetMapping("test_process")
     @Override
     public String testProcess() {
-
         return helloService.testProcess();
     }
 

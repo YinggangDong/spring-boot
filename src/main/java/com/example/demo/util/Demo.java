@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -75,6 +76,35 @@ public class Demo {
         executorService.shutdown();
         log.info("任务执行完毕,耗时：{}ms",System.currentTimeMillis() - start);
 
+    }
+
+    public static void main(String[] args) {
+        CompletableFuture<String> future1 = CompletableFuture.supplyAsync(() -> {
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("future1 finished!");
+            return "future1 finished!";
+        });
+        CompletableFuture<String> future2 = CompletableFuture.supplyAsync(() -> {
+            System.out.println("future2 finished!");
+            return "future2 finished!";
+        });
+        CompletableFuture<Void> combindFuture = CompletableFuture.allOf(future1, future2);
+        try {
+
+            combindFuture.join();
+            CompletableFuture<String> test = combindFuture.thenApply((r1)-> {
+                System.out.println("thenApply方法运行中...");
+                return "hello world";
+            });
+            test.thenAccept(System.out::println);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("future1: " + future1.isDone() + " future2: " + future2.isDone());
     }
 }
 
