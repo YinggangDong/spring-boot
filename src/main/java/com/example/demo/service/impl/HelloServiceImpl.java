@@ -75,7 +75,7 @@ public class HelloServiceImpl implements HelloService {
         int threadNum = 10;
         //启多个线程运行,每个线程睡眠2000ms
         for (int i = 0; i < threadNum; i++) {
-            //直接通过
+            //直接通过threadPoolConfig.commonThreadPool()就可以获取到公共线程池
             threadPoolConfig.commonThreadPool().execute(() -> {
                 System.out.println(Thread.currentThread().getName() + "正在运行");
                 try {
