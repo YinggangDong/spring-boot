@@ -94,6 +94,20 @@ public class HelloController implements HelloApi {
         return helloService.testProcess();
     }
 
+    /**
+     * testThreadPool 方法是 测试集成的公共线程池
+     *
+     * @return 结果
+     * @author dongyinggang
+     * @date 2021/1/23 10:50
+     */
+    @GetMapping("test_thread_pool")
+    @Override
+    public String testThreadPool() {
+        log.info("测试集成的线程池");
+        return helloService.testThreadPool();
+    }
+
 //    public static void main(String[] args) {
 //        List<CompletableFuture> list = new ArrayList<>();
 //        for (int i = 0; i < 10; i++) {

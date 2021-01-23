@@ -48,4 +48,13 @@ public interface HelloApi {
      */
     String testProcess();
 
+    /**
+     * testThreadPool 方法是 测试集成的公共线程池
+     *
+     * @return 结果
+     * @author dongyinggang
+     * @date 2021/1/23 10:50
+     */
+    String testThreadPool();
+
 }
