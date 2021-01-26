@@ -16,3 +16,9 @@ logging:
       example:
         demo:
           mapper: debug
+
+mail:
+  host: smtp.newbeiyang.com
+  port: 25
+  address: smcp@newbeiyang.com
+  password: 1234abcd$

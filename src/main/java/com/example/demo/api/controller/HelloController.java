@@ -9,13 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 
 /**
  * HelloController 类是 Spring boot 项目 测试Controller
@@ -106,6 +100,19 @@ public class HelloController implements HelloApi {
     public String testThreadPool() {
         log.info("测试集成的线程池");
         return helloService.testThreadPool();
+    }
+
+    /**
+     * testConf 方法是 测试 ConfigurationProperties 加载配置文件的属性
+     *
+     * @return mailConfig的内容
+     * @author dongyinggang
+     * @date 2021/1/26 14:03
+     */
+    @GetMapping("test_conf")
+    public String testConf() {
+        log.info("测试 ConfigurationProperties 加载配置文件的属性");
+        return helloService.testConf();
     }
 
 //    public static void main(String[] args) {
