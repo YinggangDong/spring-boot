@@ -10,7 +10,8 @@ import org.springframework.stereotype.Component;
  * @date 2021-01-26 13:53
  **/
 @Component
-@ConfigurationProperties(prefix = "mail")
+@ConfigurationProperties(prefix = "spring.mail")
+//@PropertySource(value = {"classpath:application-dev.yml"})
 public class MailConfig {
 
     /**

@@ -1,4 +1,4 @@
-# 数据库连接
+# \u6570\u636E\u5E93\u8FDE\u63A5
 spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/test?allowMultiQueries=true&serverTimezone=UTC
@@ -11,12 +11,12 @@ spring:
     username: smcp@newbeiyang.com
     password: 1234abcd$
 
-# 配置mybatis
+# \u914D\u7F6Emybatis
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.example.demo.domain
 
-# log日志级别
+# log\u65E5\u5FD7\u7EA7\u522B
 logging:
   level:
     com:

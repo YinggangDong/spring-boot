@@ -24,7 +24,6 @@ import java.util.concurrent.ExecutorService;
  **/
 @Service
 @Slf4j
-@EnableConfigurationProperties
 public class HelloServiceImpl implements HelloService {
 
     @Autowired
