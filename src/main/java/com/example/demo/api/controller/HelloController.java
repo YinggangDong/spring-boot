@@ -35,9 +35,9 @@ public class HelloController implements HelloApi {
     @GetMapping("hello")
     @Override
     public String hello(Integer id) {
-        log.info("测试方法 hello 方法,入参为{}",id);
-        String realName =  helloService.hello(id);
-        log.info("测试方法 hello 方法,出参为{}",realName);
+        log.info("测试方法 hello 方法,入参为{}", id);
+        String realName = helloService.hello(id);
+        log.info("测试方法 hello 方法,出参为{}", realName);
         return "hello," + realName;
     }
 
@@ -52,9 +52,9 @@ public class HelloController implements HelloApi {
     @GetMapping("helloList")
     @Override
     public String helloList(Integer id) {
-        log.info("测试方法 helloList方法,入参为{}",id);
-        String size =  helloService.helloList(id);
-        log.info("测试方法 hello方法,出参为{}",size);
+        log.info("测试方法 helloList方法,入参为{}", id);
+        String size = helloService.helloList(id);
+        log.info("测试方法 hello方法,出参为{}", size);
         return "hello," + size;
     }
 
@@ -69,9 +69,9 @@ public class HelloController implements HelloApi {
     @PostMapping("hello_post")
     @Override
     public String helloPost(@RequestBody User user) {
-        log.info("测试方法 helloPost 方法,入参为{}",user);
-        String realName =  helloService.hello(user.getId());
-        log.info("测试方法 helloPost 方法,出参为{}",realName);
+        log.info("测试方法 helloPost 方法,入参为{}", user);
+        String realName = helloService.hello(user.getId());
+        log.info("测试方法 helloPost 方法,出参为{}", realName);
         return "helloPost," + realName;
     }
 
@@ -115,25 +115,4 @@ public class HelloController implements HelloApi {
         return helloService.testConf();
     }
 
-//    public static void main(String[] args) {
-//        List<CompletableFuture> list = new ArrayList<>();
-//        for (int i = 0; i < 10; i++) {
-//            CompletableFuture cf = CompletableFuture.supplyAsync(()-> {
-//                try {
-//                    System.out.println("没看懂");
-//                    TimeUnit.SECONDS.sleep(3);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//                return 3;
-//            });
-//            list.add(cf);
-//        }
-//        CompletableFuture all = CompletableFuture.allOf(list.toArray(new CompletableFuture[0]));
-//        all.thenApply((a)-> {
-//            System.out.println("所有线程执行完毕");
-//            return "";
-//        });
-//        all.join();
-//    }
 }
