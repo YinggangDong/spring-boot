@@ -2,19 +2,17 @@ package com.example.demo.service.impl;
 
 import com.example.demo.config.MailConfig;
 import com.example.demo.config.ThreadPoolConfig;
-import com.example.demo.mapper.HelloMapper;
 import com.example.demo.domain.User;
+import com.example.demo.mapper.HelloMapper;
 import com.example.demo.service.HelloService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.ExecutorService;
 
 /**
  * HelloServiceImpl 类是 demo的Service实现
@@ -101,6 +99,7 @@ public class HelloServiceImpl implements HelloService {
      */
     @Override
     public String testConf() {
-        return mailConfig.getMailConfig();
+        log.info(mailConfig.getMailConfig());
+        return "加载配置文件完毕";
     }
 }

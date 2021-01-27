@@ -10,6 +10,7 @@ spring:
     port: 25
     username: smcp@newbeiyang.com
     password: 1234abcd$
+    test-field: testField
 
 # 配置mybatis
 mybatis:
