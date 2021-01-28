@@ -6,10 +6,10 @@ spring:
     username: root
     password:
   mail:
-    host: smtp.newbeiyang.com
+    host: smtp.163.com
     port: 25
-    username: smcp@newbeiyang.com
-    password: 1234abcd$
+    username: username@163.com
+    password: password
     test-field: testField
 
 # 配置mybatis
