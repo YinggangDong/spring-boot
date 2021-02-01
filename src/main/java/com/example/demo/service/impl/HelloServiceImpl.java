@@ -1,7 +1,5 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.config.MailConfig;
-import com.example.demo.config.MailConfigByValue;
 import com.example.demo.config.ThreadPoolConfig;
 import com.example.demo.domain.User;
 import com.example.demo.mapper.HelloMapper;
@@ -29,10 +27,6 @@ public class HelloServiceImpl implements HelloService {
     private HelloMapper helloMapper;
     @Autowired
     private ThreadPoolConfig threadPoolConfig;
-    @Autowired
-    private MailConfig mailConfig;
-    @Autowired
-    private MailConfigByValue mailConfigByValue;
 
     /**
      * hello 方法是 测试
@@ -93,17 +87,5 @@ public class HelloServiceImpl implements HelloService {
         return "成功启动" + threadNum + "个线程";
     }
 
-    /**
-     * testConf 方法是 测试 ConfigurationProperties 加载配置文件的属性
-     *
-     * @return mailConfig的值
-     * @author dongyinggang
-     * @date 2021/1/26 14:07
-     */
-    @Override
-    public String testConf() {
-        mailConfig.getMailConfig();
-        mailConfigByValue.getMailConfig();
-        return "加载配置文件完毕";
-    }
+
 }

@@ -35,6 +35,12 @@ public class MailConfigByValue {
     @Value("${spring.mail.password}")
     public String password;
 
+    /**
+     * getMailInfo 方法是 输出本类的属性值
+     *
+     * @author dongyinggang
+     * @date 2021/1/29 13:57
+     */
     public void getMailConfig() {
         System.out.println("mailConfig通过 @Value 注解加载");
         System.out.println("host:"+this.host);

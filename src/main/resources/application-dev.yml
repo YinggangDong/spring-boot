@@ -10,7 +10,6 @@ spring:
     port: 25
     username: username@163.com
     password: password
-    test-field: testField
 
 # 配置mybatis
 mybatis:
@@ -24,4 +23,3 @@ logging:
       example:
         demo:
           mapper: debug
-

@@ -1,7 +1,6 @@
 package com.example.demo.config;
 
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -36,10 +35,19 @@ public class MailConfig {
     /**
      * 发件箱密码(或授权码)
      */
-    @Value("${spring.mail.password}")
     public String password;
 
-    public void getMailConfig() {
+
+
+    /**
+     * mailInfo 方法是 输出本类的属性值
+     * 不要使用get开头命名，会出现启动不了，提示绑定失败的问题
+     * 测了一下，加载的时候会去调用所有的get前缀的方法
+     *
+     * @author dongyinggang
+     * @date 2021/1/29 13:57
+     */
+    public void mailInfo() {
         System.out.println("mailConfig通过 @ConfigurationProperties 注解加载");
         System.out.println("host:" + this.host);
         System.out.println("port:" + this.port);

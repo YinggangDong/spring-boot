@@ -39,12 +39,4 @@ public interface HelloService {
      */
     String testThreadPool();
 
-    /**
-     * testConf 方法是 测试 ConfigurationProperties 加载配置文件的属性
-     *
-     * @return mailConfig的值
-     * @author dongyinggang
-     * @date 2021/1/26 14:07
-     */
-    String testConf();
 }
