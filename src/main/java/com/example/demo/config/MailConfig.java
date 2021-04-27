@@ -48,7 +48,7 @@ public class MailConfig {
      * @date 2021/1/29 13:57
      */
     public void mailInfo() {
-        System.out.println("mailConfig通过 @ConfigurationProperties 注解加载");
+        System.out.println("mailConfig通过 @ConfigurationProperties 注解加载....");
         System.out.println("host:" + this.host);
         System.out.println("port:" + this.port);
         System.out.println("username:" + this.username);

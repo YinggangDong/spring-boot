@@ -10,14 +10,6 @@ spring:
     port: 25
     username: username@163.com
     password: password
-  # 配置中心url
-  cloud:
-    nacos:
-      config:
-        server-addr: 118.178.91.58:8848
-  # 服务名
-  application:
-    name: demo
 
 # 配置mybatis
 mybatis:

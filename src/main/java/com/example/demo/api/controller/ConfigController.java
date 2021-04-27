@@ -31,7 +31,6 @@ public class ConfigController implements ConfigApi {
     @Override
     @GetMapping("test_conf")
     public void testConf() {
-        log.info("测试 @ConfigurationProperties 加载配置文件的属性");
         configService.testConf();
     }
 
