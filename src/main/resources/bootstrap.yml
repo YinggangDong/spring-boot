@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: dev
+  # 配置中心url
+  cloud:
+    nacos:
+      config:
+        server-addr: 118.178.91.58:8848
+        file-extension: yaml
+        group: dev
+      discovery:
+        server-addr: 118.178.91.58:8848
+  # 服务名
+  application:
+    name: springboot-demo
