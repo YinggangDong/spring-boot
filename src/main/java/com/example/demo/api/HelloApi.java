@@ -12,11 +12,13 @@ public interface HelloApi {
 
     /**
      * hello 方法是 测试
+     * StopWatchTime不可用
      *
      * @return 测试结果
      * @author dongyinggang
      * @date 2020/11/11 18:49
      */
+//    @StopWatchTime("say hello")
     String hello(Integer id);
 
     /**

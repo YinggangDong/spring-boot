@@ -27,11 +27,13 @@ public class HelloController implements HelloApi {
 
     /**
      * hello 方法是 测试
+     * StopWatchTime可用
      *
      * @return 测试结果
      * @author dongyinggang
      * @date 2020/11/11 18:49
      */
+//    @StopWatchTime("say hello")
     @GetMapping("hello")
     @Override
     public String hello(Integer id) {

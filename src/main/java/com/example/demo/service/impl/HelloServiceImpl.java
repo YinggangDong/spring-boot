@@ -30,12 +30,14 @@ public class HelloServiceImpl implements HelloService {
 
     /**
      * hello 方法是 测试
+     * 可以通过StopWatchTime进入切面，执行环绕方法执行
      *
      * @param id 用户id
      * @return 用户姓名
      * @author dongyinggang
      * @date 2020/11/23 15:00
      */
+//    @StopWatchTime("say hello")
     @Override
     public String hello(Integer id) {
         //user可能为null
