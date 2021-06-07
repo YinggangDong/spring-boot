@@ -43,9 +43,9 @@ public class MailConfigByValue {
      */
     public void getMailConfig() {
         System.out.println("mailConfig通过 @Value 注解加载");
-        System.out.println("host:"+this.host);
-        System.out.println("port:"+this.port);
-        System.out.println("username:"+this.username);
-        System.out.println("password:"+this.password);
+        System.out.println("host:" + this.host);
+        System.out.println("port:" + this.port);
+        System.out.println("username:" + this.username);
+        System.out.println("password:" + this.password);
     }
 }
