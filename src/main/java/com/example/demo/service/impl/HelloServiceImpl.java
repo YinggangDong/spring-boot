@@ -4,7 +4,6 @@ import com.example.demo.config.ThreadPoolConfig;
 import com.example.demo.domain.User;
 import com.example.demo.mapper.HelloMapper;
 import com.example.demo.service.HelloService;
-import com.example.demo.util.aspect.stopwatch.StopWatchTime;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,7 +37,6 @@ public class HelloServiceImpl implements HelloService {
      * @date 2020/11/23 15:00
      */
     @Override
-    @StopWatchTime("say hello")
     public String hello(Integer id) {
         //user可能为null
         User user = helloMapper.selectById(id);
