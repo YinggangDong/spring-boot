@@ -23,3 +23,7 @@ logging:
       example:
         demo:
           mapper: debug
+      alibaba:
+        nacos:
+          client:
+            naming:WARN

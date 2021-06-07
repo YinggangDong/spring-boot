@@ -13,3 +13,6 @@ spring:
   # 服务名
   application:
     name: springboot-demo
+  thymeleaf:
+    check-template: false
+    check-template-location: false
