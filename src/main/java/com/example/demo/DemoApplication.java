@@ -14,9 +14,13 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 //@MapperScan(value = "com.example.demo.mapper")
 @EnableAspectJAutoProxy(exposeProxy = true)
 @SpringBootApplication
+//@EnableDiscoveryClient
 public class DemoApplication {
 
     public static void main(String[] args) {
+        // 因为nacos的log4j2导致本项目的日志不输出的问题
+        // 配置关闭nacos日志
+        System.setProperty("nacos.logging.default.config.enabled", "false");
         SpringApplication.run(DemoApplication.class, args);
     }
 
