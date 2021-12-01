@@ -90,22 +90,16 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.67</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.boot</groupId>-->
-<!--            <artifactId>nacos-config-spring-boot-starter</artifactId>-->
-<!--            <version>0.2.1</version>-->
-<!--        </dependency>-->
+        <!--导入jedis包-->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <version>0.2.2.RELEASE</version>
-
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>3.6.0</version>
         </dependency>
-
-        <!-- nacos生成登录密码 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.6</version>
         </dependency>
     </dependencies>
 

@@ -1,7 +1,7 @@
 # 数据库连接
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/test?allowMultiQueries=true&serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/test?allowMultiQueries=true&serverTimezone=UTC&useSSL=false
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password:
@@ -23,7 +23,3 @@ logging:
       example:
         demo:
           mapper: debug
-      alibaba:
-        nacos:
-          client:
-            naming:WARN
