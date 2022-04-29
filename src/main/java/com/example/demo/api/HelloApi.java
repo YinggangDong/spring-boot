@@ -1,5 +1,6 @@
 package com.example.demo.api;
 
+import com.example.demo.domain.DateTestVO;
 import com.example.demo.domain.User;
 
 /**
@@ -58,6 +59,8 @@ public interface HelloApi {
      * @date 2021/1/23 10:50
      */
     String testThreadPool();
+
+    DateTestVO testDate(DateTestVO dateTestVO);
 
 
 }

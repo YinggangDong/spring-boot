@@ -5,6 +5,8 @@ import com.example.demo.domain.User;
 import com.example.demo.mapper.HelloMapper;
 import com.example.demo.service.HelloService;
 import lombok.extern.slf4j.Slf4j;
+import org.openjdk.jol.info.ClassLayout;
+import org.openjdk.jol.info.GraphLayout;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +44,8 @@ public class HelloServiceImpl implements HelloService {
     public String hello(Integer id) {
         //user可能为null
         User user = helloMapper.selectById(id);
+        System.out.println(ClassLayout.parseInstance(user).toPrintable());
+        System.out.println(GraphLayout.parseInstance(user).toPrintable());
         return Optional.ofNullable(user).map(User::getRealName).orElse("未知用户");
     }
 

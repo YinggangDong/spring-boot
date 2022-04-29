@@ -1,6 +1,9 @@
 package com.example.demo.config;
 
+import cn.hutool.core.util.StrUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,12 +12,13 @@ import org.springframework.stereotype.Component;
  * @author dongyinggang
  * @date 2021-01-28 14:16
  **/
+@Slf4j
 @Component
 public class MailConfigByValue {
     /**
      * 提供邮件服务的host
      */
-    @Value("${spring.mail.host}")
+    @Value("${spring.mail.host:}")
     public String host;
 
     /**
@@ -47,5 +51,14 @@ public class MailConfigByValue {
         System.out.println("port:" + this.port);
         System.out.println("username:" + this.username);
         System.out.println("password:" + this.password);
+    }
+
+    @Bean
+    public MailConfigByValue test() {
+        if (StrUtil.isEmpty(this.host)) {
+            this.host = "12312313";
+        }
+        log.info(this.host);
+        return this;
     }
 }

@@ -1,10 +1,11 @@
 package com.example.demo.util.httpclient;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.http.Header;
 import org.apache.http.cookie.Cookie;
 import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.http.message.BasicHeader;
-import org.springframework.boot.SpringApplication;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -28,14 +29,40 @@ public class HttpClientUtilTest {
     private static String httpPostByFormUrl = "http://localhost:8080/api/httpPostByForm";
     private static String httpPostByJsonUrl = "http://localhost:8080/api/httpPostByJson";
 
+    private static String url = "https://devbase.xinbeiyang.info/statisticapi/monthly_trend/query_month_time_out_rate";
     /**
      * 二进制类型返回结果测试URL
      */
     private static String httpGetBinaryUrl = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551940859395&di=f7cfc5afa3b2768161b351522af87409&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0148e758afd26fa801219c77fbda55.jpg";
 
 
-    public static void main(String[] args) throws IOException {
-        SpringApplication.run(HttpClientUtilTest.class, args);
+    public static void main(String[] args) throws IOException, InterruptedException {
+//        SpringApplication.run(HttpClientUtilTest.class, args);
+
+        // 创建请求参数
+        Map<String, String> parameters = getParameterUser();
+        Header[] headers = getHeaders();
+        BasicClientCookie[] cookies = getCookies();
+
+        // 发送Get请求并得到响应结果
+        for (int i = 0; i < 10; i++) {
+            Thread.sleep(235);
+            new Thread(() -> {
+                boolean flag = true;
+                while (flag) {
+                    HttpResult httpResult = HttpClientUtil.sendGet(url, parameters, headers, cookies, "UTF-8");
+                    // 处理响应结果
+                    flag = handleHttpResult1(httpResult);
+
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
+
 
         // 测试HttpClientUtil的sendGet()：服务端使用Parameter的形式接收Get请求发送过来的数据，并返回文本数据
         // testHttpClientUtil_sendGet(httpGetByParameterUrl);
@@ -139,9 +166,10 @@ public class HttpClientUtilTest {
      * 创建并获取Header信息
      */
     private static Header[] getHeaders() {
-        Header[] headers = new Header[2];
+        Header[] headers = new Header[3];
         headers[0] = new BasicHeader("sendHeaderName_1", "sendHeaderValue_1");
         headers[1] = new BasicHeader("sendHeaderName_2", "sendHeaderValue_2");
+        headers[2] = new BasicHeader("Authorization", "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXBlcmFkbWluIiwiY3JlYXRlZCI6MTY0ODA0NTY3MTgyNCwiZXhwIjoxNjQ4NjUwNDcxLCJ1c2VySWQiOiItMSJ9.-_cMEXwxL-SdIoZ5DhP3styXnoF9ixDvsgfewNoXelAksSSsInYnmJZHP33ivGwyBDQZDEPu68VnSYReHbYG6Q");
         return headers;
     }
 
@@ -194,5 +222,20 @@ public class HttpClientUtilTest {
                 System.out.println(cookie.getName() + " : " + cookie.getValue() + " : " + cookie.getDomain() + " : " + cookie.getPath());
             }
         }
+    }
+
+    /**
+     * 处理响应结果
+     */
+    private static boolean handleHttpResult1(HttpResult httpResult) {
+
+        JSONObject json = (JSONObject) JSON.parse(httpResult.getStringContent());
+        if (json.get("result") == null) {
+            System.out.println(Thread.currentThread().getName() + "请求到了null,退出线程");
+            return false;
+        } else {
+            return true;
+        }
+
     }
 }

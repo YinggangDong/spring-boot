@@ -1,6 +1,8 @@
 package com.example.demo.api.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.example.demo.api.HelloApi;
+import com.example.demo.domain.DateTestVO;
 import com.example.demo.domain.User;
 import com.example.demo.service.HelloService;
 import lombok.extern.slf4j.Slf4j;
@@ -9,7 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 /**
  * HelloController 类是 Spring boot 项目 测试Controller
@@ -36,7 +41,10 @@ public class HelloController implements HelloApi {
 //    @StopWatchTime("say hello")
     @GetMapping("hello")
     @Override
-    public String hello(Integer id) {
+    public String hello(@RequestParam Integer id) {
+        if (null == id) {
+            throw new RuntimeException("id不能为空");
+        }
         log.info("测试方法 hello 方法,入参为{}", id);
         String realName = helloService.hello(id);
         log.info("测试方法 hello 方法,出参为{}", realName);
@@ -70,7 +78,7 @@ public class HelloController implements HelloApi {
      */
     @PostMapping("hello_post")
     @Override
-    public String helloPost(@RequestBody User user) {
+    public String helloPost(@RequestBody @Valid User user) {
         log.info("测试方法 helloPost 方法,入参为{}", user);
         String realName = helloService.hello(user.getId());
         log.info("测试方法 helloPost 方法,出参为{}", realName);
@@ -102,6 +110,13 @@ public class HelloController implements HelloApi {
     public String testThreadPool() {
         log.info("测试集成的线程池");
         return helloService.testThreadPool();
+    }
+
+    @PostMapping("test_date")
+    @Override
+    public DateTestVO testDate(@RequestBody DateTestVO dateTestVO) {
+        log.info(JSON.toJSONString(dateTestVO));
+        return dateTestVO;
     }
 
 }

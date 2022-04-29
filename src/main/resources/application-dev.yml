@@ -11,10 +11,12 @@ spring:
     username: username@163.com
     password: password
 
+
 # 配置mybatis
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.example.demo.domain
+  config-location: classpath:mybatis-config.xml
 
 # log日志级别
 logging:
@@ -23,3 +25,5 @@ logging:
       example:
         demo:
           mapper: debug
+
+#feignPath: '@within(com.example.demo.config.feignlog.FackeFeignClient)'

@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.config.feignlog.EnableFeignLog;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * @date 2020/11/21 18:56
  */
 @EnableAspectJAutoProxy(exposeProxy = true)
+@EnableFeignLog
 @SpringBootApplication
 public class DemoApplication {
 
