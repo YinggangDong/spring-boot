@@ -1,4 +1,4 @@
-package com.example.demo.config.feignlog;
+package com.example.demo.feign.feignlog;
 
 import org.springframework.context.annotation.Import;
 

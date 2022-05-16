@@ -15,6 +15,8 @@ import java.util.Map;
 @Mapper
 public interface DemoMapper {
 
+
+    @Demo
     @Select("SELECT * FROM t")
     List<Map<String, Object>> selectAll();
 

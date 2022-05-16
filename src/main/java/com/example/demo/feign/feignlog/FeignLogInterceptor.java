@@ -1,9 +1,10 @@
-package com.example.demo.config.feignlog;
+package com.example.demo.feign.feignlog;
 
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
+import org.springframework.cloud.openfeign.FeignClient;
 
 /**
  * FeignLogInterceptor 类是 统一feign日志拦截器
@@ -49,7 +50,7 @@ public class FeignLogInterceptor implements MethodInterceptor {
     public Object invoke(MethodInvocation invocation) throws Throwable {
 
         //获取类实现的接口列表,判断是否含有feignClient注解的接口
-        FakeFeignClient feignClient = invocation.getThis().getClass().getAnnotation(FakeFeignClient.class);
+        FeignClient feignClient = invocation.getThis().getClass().getAnnotation(FeignClient.class);
 
         //判断是否有feignClient的注解,没有注解直接执行
         if (feignClient == null) {

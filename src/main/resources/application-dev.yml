@@ -1,3 +1,4 @@
+
 # 数据库连接
 spring:
   datasource:
@@ -26,4 +27,6 @@ logging:
         demo:
           mapper: debug
 
-#feignPath: '@within(com.example.demo.config.feignlog.FackeFeignClient)'
+feignPath: @annotation(org.springframework.cloud.openfeign.feignClient)
+server:
+  port: 8088

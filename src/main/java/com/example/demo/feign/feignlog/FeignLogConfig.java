@@ -1,4 +1,4 @@
-package com.example.demo.config.feignlog;
+package com.example.demo.feign.feignlog;
 
 import org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,7 +36,7 @@ public class FeignLogConfig {
         if (StringUtils.isEmpty(feignPath)) {
             feignPath = "execution(* com.example.demo..feign..*(..))";
         }
-        feignPath = "@annotation(com.example.demo.config.feignlog.FakeFeignClient)";
+        feignPath = "@annotation(org.springframework.cloud.openfeign.feignClient)";
         //构建增强结果
         AspectJExpressionPointcutAdvisor advisor = new AspectJExpressionPointcutAdvisor();
         //连接点

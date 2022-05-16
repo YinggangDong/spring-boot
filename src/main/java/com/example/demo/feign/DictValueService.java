@@ -1,8 +1,6 @@
 package com.example.demo.feign;
 
 
-import com.example.demo.config.feignlog.FakeFeignClient;
-
 /**
  * DictValueService 接口是 bbpf的字典相关feign调用
  *
@@ -11,7 +9,6 @@ import com.example.demo.config.feignlog.FakeFeignClient;
  */
 public interface DictValueService {
 
-    @FakeFeignClient
     void testConfByValue();
 
 
