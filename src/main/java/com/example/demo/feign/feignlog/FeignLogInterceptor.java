@@ -50,13 +50,21 @@ public class FeignLogInterceptor implements MethodInterceptor {
     public Object invoke(MethodInvocation invocation) throws Throwable {
 
         //获取类实现的接口列表,判断是否含有feignClient注解的接口
-        FeignClient feignClient = invocation.getThis().getClass().getAnnotation(FeignClient.class);
+        Class<?>[] list = invocation.getThis().getClass().getInterfaces();
+        FeignClient feignClient = null;
+        for (Class<?> aClass : list) {
+            feignClient = aClass.getAnnotation(FeignClient.class);
+            if (feignClient != null) {
+                break;
+            }
 
+        }
         //判断是否有feignClient的注解,没有注解直接执行
         if (feignClient == null) {
-            log.info("不希望进来的类进来了");
+            log.debug("非 Feign 调用类进入 FeignLogInterceptor 切面");
             return invocation.proceed();
         }
+
 
         // 1.获取当前的方法名“ methodSignature.getName() ”
         String name = invocation.getMethod().getName();

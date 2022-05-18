@@ -27,6 +27,7 @@ logging:
         demo:
           mapper: debug
 
-feignPath: @annotation(org.springframework.cloud.openfeign.feignClient)
+feignPath: '@within(org.springframework.cloud.openfeign.FeignClient)'
+
 server:
   port: 8088

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author dongyinggang
  * @date 2022-05-16 13:34
  **/
-@FeignClient(name = "feignName", url = "127.0.0.1:8080/")
+@FeignClient(name = "feignName", url = "127.0.0.1:${server.port}/")
 public interface FeignDemoService {
 
     @GetMapping("/feign/hi")

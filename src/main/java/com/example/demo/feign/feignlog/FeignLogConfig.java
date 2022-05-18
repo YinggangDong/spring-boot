@@ -36,7 +36,7 @@ public class FeignLogConfig {
         if (StringUtils.isEmpty(feignPath)) {
             feignPath = "execution(* com.example.demo..feign..*(..))";
         }
-        feignPath = "@annotation(org.springframework.cloud.openfeign.feignClient)";
+        feignPath = "@within(org.springframework.cloud.openfeign.FeignClient)";
         //构建增强结果
         AspectJExpressionPointcutAdvisor advisor = new AspectJExpressionPointcutAdvisor();
         //连接点
