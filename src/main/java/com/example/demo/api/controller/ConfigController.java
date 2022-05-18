@@ -1,7 +1,6 @@
 package com.example.demo.api.controller;
 
 import com.example.demo.api.ConfigApi;
-import com.example.demo.feign.DictValueService;
 import com.example.demo.service.ConfigService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +21,6 @@ public class ConfigController implements ConfigApi {
 
     @Autowired
     private ConfigService configService;
-    @Autowired
-    private DictValueService dictValueService;
 
     /**
      * testConf 方法是 测试 ConfigurationProperties 加载配置文件的属性
@@ -48,18 +45,6 @@ public class ConfigController implements ConfigApi {
     public void testConfByValue() {
         log.info("测试 @Value 加载配置文件的属性");
         configService.testConfByValue();
-    }
-
-    /**
-     * testConfByValue 方法是 测试 @Value 加载配置文件的属性
-     *
-     * @author dongyinggang
-     * @date 2021/1/29 13:56
-     */
-    @GetMapping("test_conf_by_value_feign")
-    public void testConfByValueFeign() {
-        log.info("测试 @Value 加载配置文件的属性");
-        dictValueService.testConfByValue();
     }
 
 

@@ -1,10 +1,10 @@
 package com.example.demo.feign.feignlog;
 
+import cn.hutool.core.util.StrUtil;
 import org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.util.StringUtils;
 
 /**
  * FeignLogConfig 类是 feign日志配置类
@@ -19,7 +19,7 @@ public class FeignLogConfig {
      * 1.优先读取配置文件中配置的连接点表达式
      * 2.若不存在，则会默认设置为当前项目启动类所在目录下的任意层级的feign包下的类
      */
-    @Value("${feignPath:}")
+    @Value("${feign.path:}")
     private String feignPath;
 
     /**
@@ -33,10 +33,9 @@ public class FeignLogConfig {
     @Bean
     public AspectJExpressionPointcutAdvisor feignLogAdvisor() {
         //若未指定连接点,则获取当前项目的启动类所在的根目录下任意层级的feign包作为默认值
-        if (StringUtils.isEmpty(feignPath)) {
+        if (StrUtil.isEmpty(feignPath)) {
             feignPath = "execution(* com.example.demo..feign..*(..))";
         }
-        feignPath = "@within(org.springframework.cloud.openfeign.FeignClient)";
         //构建增强结果
         AspectJExpressionPointcutAdvisor advisor = new AspectJExpressionPointcutAdvisor();
         //连接点
